@@ -1,0 +1,15 @@
+//colors
+$folf-main-color: #3F51B5;
+$folf-accent-color: #FF4081;
+
+
+//fonts
+$folf-font-family: "Roboto", sans-serif;
+$folf-font-size-normal: 14px;
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto Regular'), local('Roboto-Regular'), url('../fonts/Roboto.ttf');
+}
