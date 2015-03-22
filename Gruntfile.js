@@ -12,6 +12,8 @@ module.exports = function (grunt) {
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
 
+  grunt.loadNpmTasks('grunt-vulcanize');
+
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
@@ -26,6 +28,26 @@ module.exports = function (grunt) {
 
     // Project settings
     yeoman: appConfig,
+
+    mkdir: {
+      all: {
+        options: {
+          create: ['.tmp', '.tmp/lib']
+        }
+      }
+    },
+
+    vulcanize: {
+      default: {
+        options: {
+          'inline': true,
+          'strip': true
+        },
+        files: {
+          '.tmp/lib/vulcanized.html': 'app/elements/vulcanize.html'
+        }
+      }
+    },
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
@@ -59,7 +81,8 @@ module.exports = function (grunt) {
           '<%= yeoman.app %>/{,*/}*.html',
           '.tmp/styles/{,*/}*.css',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
-        ]
+        ],
+        tasks: ['vulcanize:default']
       }
     },
 
@@ -380,6 +403,7 @@ module.exports = function (grunt) {
         singleRun: true
       }
     }
+
   });
 
 
@@ -390,6 +414,8 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'mkdir',
+      'vulcanize',
       'wiredep',
       'concurrent:server',
       'autoprefixer',
@@ -413,6 +439,8 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'mkdir',
+    'vulcanize',
     'wiredep',
     'useminPrepare',
     'concurrent:dist',
