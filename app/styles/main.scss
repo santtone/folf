@@ -1,8 +1,39 @@
-
 @import 'variables';
 
-html, body{
+html, body {
   font-family: $folf-font-family;
   font-size: $folf-font-size-normal;
+  background: $folf-background;
+  margin: 0;
+}
+
+.folf-card{
+  min-width: 400px;
+  margin-top: 64px;
+  max-height: 580px;
+  max-width: 512px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  border-radius: 2px;
+  background: #ffffff;
+  padding: 20px 16px;
+  box-sizing: border-box;
+}
+
+.folf-header{
+  color: $folf-font-color-header;
+  font-size: $folf-font-size-large !important;
+  font-weight: lighter;
+  margin-bottom: 12px;
+}
+
+.folf-icon{
+  width: 35px;
+  height: 35px;
+  color: #808080;
+  margin-right: 6px;
+}
+
+.space-medium{
+  margin-top: 24px;
 }
 

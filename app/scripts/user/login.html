@@ -1,2 +1,36 @@
-<div><paper-input floatinglabel label="käyttäjätunnus"></paper-input></div>
-<div><paper-input floatinglabel label="salasana"></paper-input></div>
+<core-toolbar class="medium-tall">
+</core-toolbar>
+
+<div horizontal center-justified layout>
+    <div class="folf-card">
+        <div class="folf-header">
+            Kirjaudu
+        </div>
+
+        <div horizontal layout center>
+            <div>
+                <core-icon class="folf-icon" icon="account-circle"></core-icon>
+                </core-icon></div>
+            <div flex>
+                <paper-input-decorator label="käyttäjätunnus">
+                    <input is="core-input">
+                </paper-input-decorator>
+            </div>
+        </div>
+
+        <div horizontal layout center>
+            <div>
+                <core-icon class="folf-icon" icon="lock"></core-icon>
+            </div>
+            <div flex>
+                <paper-input-decorator label="salasana">
+                    <input is="core-input" type="password">
+                </paper-input-decorator>
+            </div>
+        </div>
+
+        <div class="space-medium" horizontal end-justified layout>
+            <paper-fab icon="check"></paper-fab>
+        </div>
+    </div>
+</div>
