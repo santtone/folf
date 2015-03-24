@@ -12,6 +12,7 @@
             .element-container {
                 min-height: 120px;
                 min-width: 100px;
+                position: relative;
             }
 
             .content {
@@ -27,6 +28,7 @@
         </style>
 
         <div vertical layout class="element-container">
+            <paper-ripple fit></paper-ripple>
             <div flex style="background: {{color | paleColor}}">
                 <div horizontal center-justified layout>
                     <div class="content">
