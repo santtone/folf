@@ -1,28 +1,44 @@
-<polymer-element name="folf-main-item" attributes="">
+<polymer-element name="folf-main-item" attributes="label color alphaChannel">
     <template>
 
         <style>
 
             :host {
                 display: block;
-                min-height: 100px;
+                min-height: 120px;
                 min-width: 100px;
             }
 
-            .element-container{
-                padding: 6px;
-                min-height: 100px;
+            .element-container {
+                min-height: 120px;
                 min-width: 100px;
+            }
+
+            .content {
+                padding: 6px;
+                background: transparent;
+            }
+
+            .title {
+                padding: 6px;
+                color: white;
             }
 
         </style>
 
         <div vertical layout class="element-container">
-            <div flex>
-                <content></content>
+            <div flex style="background: {{color | paleColor}}">
+                <div horizontal center-justified layout>
+                    <div class="content">
+                        <content></content>
+                    </div>
+                </div>
             </div>
-            <div>
-                Title on tässä
+            <div horizontal layout class="title" style="background: {{color}}">
+                <div flex>{{label}}</div>
+                <div>
+                    <core-icon icon="chevron-right"></core-icon>
+                </div>
             </div>
         </div>
 
@@ -32,10 +48,22 @@
         Polymer('folf-main-item', {
 
             publish: {
+                color: '#E91E63',
+                alphaChannel: 0.2,
+                label: ''
             },
-
             ready: function () {
-
+            },
+            paleColor: function (hex) {
+                var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+                if (result) {
+                    return 'rgba(' +
+                            parseInt(result[1], 16) + ',' +
+                            parseInt(result[2], 16) + ',' +
+                            parseInt(result[3], 16) + ',' +
+                            this.alphaChannel + ')';
+                }
+                return hex;
             }
         });
 
