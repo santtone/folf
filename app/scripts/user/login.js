@@ -2,6 +2,6 @@
 
 angular.module('folf')
   .controller('LoginCtrl', function ($scope) {
-    console.log('')
+    console.log('');
 
   });

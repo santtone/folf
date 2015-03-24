@@ -1,0 +1,43 @@
+<polymer-element name="folf-main-item" attributes="">
+    <template>
+
+        <style>
+
+            :host {
+                display: block;
+                min-height: 100px;
+                min-width: 100px;
+            }
+
+            .element-container{
+                padding: 6px;
+                min-height: 100px;
+                min-width: 100px;
+            }
+
+        </style>
+
+        <div vertical layout class="element-container">
+            <div flex>
+                <content></content>
+            </div>
+            <div>
+                Title on tässä
+            </div>
+        </div>
+
+    </template>
+    <script>
+
+        Polymer('folf-main-item', {
+
+            publish: {
+            },
+
+            ready: function () {
+
+            }
+        });
+
+    </script>
+</polymer-element>

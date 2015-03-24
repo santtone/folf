@@ -1,13 +1,29 @@
 angular.module('folf')
-  .config(function ($stateProvider, $urlRouterProvider) {
+  .config(['$stateProvider', '$urlRouterProvider', 'stateHelperProvider',
+    function ($stateProvider, $urlRouterProvider, stateHelperProvider) {
 
-    $urlRouterProvider.otherwise("/user/login");
+      $urlRouterProvider.otherwise("/folf/main");
 
-    $stateProvider
-      .state('login', {
-        url: "/user/login",
-        templateUrl: "scripts/user/login.html",
-        controller: 'LoginCtrl'
-      })
+      stateHelperProvider.setNestedState(
+        {
+          name: 'folf',
+          url: '/folf',
+          templateUrl: 'scripts/main/folf.html',
+          controller: 'FolfCtrl',
+          children: [
+            {
+              name: 'main',
+              url: '/main',
+              templateUrl: 'scripts/main/main.html',
+              controller: 'MainCtrl'
+            },
+            {
+              name: 'profile',
+              url: '/profile',
+              templateUrl: 'scripts/user/profile.html',
+              controller: 'ProfileCtrl'
+            }
+          ]
+        });
 
-  });
+    }]);

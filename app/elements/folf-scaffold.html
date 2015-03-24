@@ -1,0 +1,66 @@
+<polymer-element name="folf-scaffold" attributes="">
+    <template>
+
+        <style>
+
+            :host {
+                display: block;
+            }
+
+            [drawer] {
+                background-color: #fff;
+            }
+
+            [main] {
+                height: 100%;
+                background-color: #fff;
+            }
+
+            #nav-header {
+                background-color: #3F51B5;
+                color: #fff;
+            }
+
+            #drawerPanel:not([narrow]) #menuButton {
+                display: none;
+            }
+
+            #headerPanel{
+                z-index: 0;
+            }
+
+        </style>
+
+        <core-scaffold id="scaffold">
+            <core-header-panel navigation flex>
+                <core-toolbar id="nav-header">
+                    <span>Menu</span>
+                </core-toolbar>
+                <core-menu>
+                    <core-item label="One"></core-item>
+                    <core-item label="Two"></core-item>
+                </core-menu>
+            </core-header-panel>
+            <span tool>Title</span>
+            <div class="content">
+                <content>
+
+                </content>
+            </div>
+        </core-scaffold>
+
+    </template>
+    <script>
+
+        Polymer('folf-scaffold', {
+
+            publish: {
+            },
+
+            ready: function() {
+                this.$.scaffold.responsiveWidth = '2000px';
+            }
+        });
+
+    </script>
+</polymer-element>
