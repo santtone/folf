@@ -18,6 +18,11 @@
             .content {
                 padding: 6px;
                 background: transparent;
+                pointer-events: none;
+            }
+
+            .icon{
+                pointer-events: none;
             }
 
             .title {
@@ -39,7 +44,7 @@
             <div horizontal layout class="title" style="background: {{color}}">
                 <div flex>{{label}}</div>
                 <div>
-                    <core-icon icon="chevron-right"></core-icon>
+                    <core-icon class="icon" icon="chevron-right"></core-icon>
                 </div>
             </div>
         </div>
