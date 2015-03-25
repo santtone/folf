@@ -7,13 +7,10 @@ angular.module('folf', [
 ]);
 
 angular.module('ng-polymer-elements').constant('$ngPolymerMappings', {
-/*TODO
-newElement: {
-    anAttribute: {
-      primitive: 'an-attribute'
-    },
-    anEvent: {
-      event: 'an-event'
+
+folfMainItem: {
+    folfSelected: {
+      event: 'selected'
     }
-  }*/
+  }
 });

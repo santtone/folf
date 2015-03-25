@@ -1,0 +1,26 @@
+<polymer-element name="folf-map" attributes="">
+    <template>
+
+        <style>
+
+        </style>
+
+        <div fit>
+        <google-map latitude="{{latitude}}" longitude="{{longitude}}"></google-map>
+        </div>
+
+    </template>
+    <script>
+
+        Polymer('folf-map', {
+
+            publish: {
+                latitude: 60.8681,
+                longitude: 26.7042
+            },
+            ready: function () {
+            }
+        });
+
+    </script>
+</polymer-element>

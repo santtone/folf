@@ -18,6 +18,12 @@ angular.module('folf')
               controller: 'MainCtrl'
             },
             {
+              name: 'map',
+              url: '/map',
+              templateUrl: 'scripts/map/map.html',
+              controller: 'MapCtrl'
+            },
+            {
               name: 'profile',
               url: '/profile',
               templateUrl: 'scripts/user/profile.html',

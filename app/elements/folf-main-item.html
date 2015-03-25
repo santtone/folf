@@ -32,7 +32,7 @@
 
         </style>
 
-        <div vertical layout class="element-container">
+        <div vertical layout class="element-container" on-click="{{onSelection}}">
             <paper-ripple fit></paper-ripple>
             <div flex horizontal center-justified layout style="background: {{color | paleColor}}">
                 <div horizontal center-justified layout>
@@ -60,6 +60,9 @@
                 label: ''
             },
             ready: function () {
+            },
+            onSelection: function(){
+                this.fire('selected', {});
             },
             paleColor: function (hex) {
                 var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
