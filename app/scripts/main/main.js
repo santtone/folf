@@ -7,4 +7,8 @@ angular.module('folf')
       $state.go('folf.map');
     };
 
+    $scope.courseSelected = function(){
+      $state.go('folf.courseList');
+    }
+
   }]);

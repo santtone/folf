@@ -30,6 +30,12 @@ angular.module('folf')
               url: '/profile',
               templateUrl: 'scripts/user/profile.html',
               controller: 'ProfileCtrl'
+            },
+            {
+              name: 'courseList',
+              url: '/courseList',
+              templateUrl: 'scripts/course/course-list.html',
+              controller: 'CourseListCtrl'
             }
           ]
         });
