@@ -7,10 +7,17 @@ angular.module('folf', [
 ]);
 
 angular.module('ng-polymer-elements').constant('$ngPolymerMappings', {
-
-folfMainItem: {
+  folfMainItem: {
     folfSelected: {
       event: 'selected'
+    }
+  },
+  folfScaffold: {
+    folfHome: {
+      primitive: 'menu'
+    },
+    folfGoBack: {
+      event: 'go-back'
     }
   }
 });

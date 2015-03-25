@@ -1,8 +1,10 @@
+'use strict';
+
 angular.module('folf')
   .config(['$stateProvider', '$urlRouterProvider', 'stateHelperProvider',
     function ($stateProvider, $urlRouterProvider, stateHelperProvider) {
 
-      $urlRouterProvider.otherwise("/folf/main");
+      $urlRouterProvider.otherwise('/folf/main');
 
       stateHelperProvider.setNestedState(
         {
@@ -32,4 +34,15 @@ angular.module('folf')
           ]
         });
 
+    }]);
+
+angular.module('folf')
+  .run(['$rootScope', '$state',
+    function ($rootScope, $state) {
+      $rootScope.$on('$stateChangeStart', function (event, toState) {
+          if (_.isEqual(toState.name, 'folf')) {
+            event.preventDefault();
+            $state.go('folf.main');
+          }
+        });
     }]);

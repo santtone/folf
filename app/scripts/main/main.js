@@ -5,6 +5,6 @@ angular.module('folf')
 
     $scope.mapSelected = function(){
       $state.go('folf.map');
-    }
+    };
 
   }]);

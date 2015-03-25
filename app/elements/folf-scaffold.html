@@ -1,4 +1,4 @@
-<polymer-element name="folf-scaffold" attributes="">
+<polymer-element name="folf-scaffold" attributes="menu">
     <template>
 
         <style>
@@ -8,16 +8,16 @@
             }
 
             [drawer] {
-                background-color: #fff;
+                background-color: #eee;
             }
 
             [main] {
                 height: 100%;
-                background-color: #fff;
+                background-color: #eee;
             }
 
-            #nav-header {
-                background-color: #3F51B5;
+            core-toolbar {
+                background-color: #526E9C;
                 color: #fff;
             }
 
@@ -31,23 +31,27 @@
 
         </style>
 
-        <core-scaffold id="scaffold">
-            <core-header-panel navigation flex>
-                <core-toolbar id="nav-header">
-                    <span>Menu</span>
-                </core-toolbar>
-                <core-menu>
-                    <core-item label="One"></core-item>
-                    <core-item label="Two"></core-item>
-                </core-menu>
-            </core-header-panel>
-            <span tool>Title</span>
-            <div class="content">
-                <content>
 
-                </content>
+        <core-drawer-panel id="drawerPanel" narrow="{{narrow}}" drawerWidth="{{drawerWidth}}" rightDrawer="{{rightDrawer}}" responsiveWidth="{{responsiveWidth}}" disableSwipe="{{disableSwipe}}">
+            <div vertical layout drawer>
+                <content select="[navigation], nav"></content>
             </div>
-        </core-scaffold>
+            <core-header-panel id="headerPanel" main mode="{{mode}}">
+                <core-toolbar>
+                    <template if="{{!rightDrawer && menu}}">
+                        <paper-icon-button id="menuButton" icon="menu" on-tap="{{togglePanel}}"></paper-icon-button>
+                    </template>
+                    <template if="{{!rightDrawer && !menu}}">
+                        <paper-icon-button id="menuButton" icon="arrow-back" on-tap="{{goBack}}"></paper-icon-button>
+                    </template>
+                    <content select="[tool]"></content>
+                    <template if="{{rightDrawer}}">
+                        <paper-icon-button id="menuButton" icon="menu" on-tap="{{togglePanel}}"></paper-icon-button>
+                    </template>
+                </core-toolbar>
+                <content select="*"></content>
+            </core-header-panel>
+        </core-drawer-panel>
 
     </template>
     <script>
@@ -55,10 +59,37 @@
         Polymer('folf-scaffold', {
 
             publish: {
+                drawerWidth: '256px',
+                responsiveWidth: '2000px',
+                rightDrawer: false,
+                disableSwipe: false,
+                menu: false,
+                mode: {value: 'waterfall', reflect: true}
             },
-
             ready: function() {
-                this.$.scaffold.responsiveWidth = '2000px';
+                this._scrollHandler = this.scroll.bind(this);
+                this.$.headerPanel.addEventListener('scroll', this._scrollHandler);
+            },
+            goBack: function(){
+                this.fire('go-back', {});
+            },
+            detached: function() {
+                this.$.headerPanel.removeEventListener('scroll', this._scrollHandler);
+            },
+            togglePanel: function() {
+                this.$.drawerPanel.togglePanel();
+            },
+            openDrawer: function() {
+                this.$.drawerPanel.openDrawer();
+            },
+            closeDrawer: function() {
+                this.$.drawerPanel.closeDrawer();
+            },
+            get scroller() {
+                return this.$.headerPanel.scroller;
+            },
+            scroll: function(e) {
+                this.fire('scroll', {target: e.detail.target}, this, false);
             }
         });
 
