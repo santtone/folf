@@ -1,0 +1,52 @@
+<polymer-element name="folf-list-item" attributes="avatar primaryText secondaryText">
+    <template>
+        <style>
+            .item-container{
+                padding-left: 16px;
+                padding-right: 16px;
+                padding-bottom: 6px;
+                padding-top: 6px;
+                position: relative;
+            }
+
+            .text-container{
+                margin-left: 26px;
+                margin-right: 26px;
+            }
+
+            .icon-background{
+                background: lightgrey;
+                border-radius: 100%;
+                border: 10px solid lightgrey;
+            }
+
+            .secondary-text{
+                font-size: 14px;
+                color: #808080;
+            }
+        </style>
+
+        <div horizontal layout class="item-container">
+            <paper-ripple fit></paper-ripple>
+            <core-icon icon="{{avatar}}" class="icon-background"></core-icon>
+            <div flex horizontal layout center class="text-container">
+                <div vertical layout>
+                    <div>{{primaryText}}</div>
+                    <div class="secondary-text">{{secondaryText}}</div>
+                </div>
+            </div>
+        </div>
+
+    </template>
+    <script>
+
+        Polymer('folf-list-item', {
+
+            publish: {
+            },
+            ready: function () {
+            }
+        });
+
+    </script>
+</polymer-element>
