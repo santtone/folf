@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('folf')
-  .controller('MainCtrl', ['$scope', '$state', function ($scope, $state) {
+  .controller('MainCtrl', ['$scope', '$state','geocoder', function ($scope, $state, geocoder) {
 
     $scope.mapSelected = function(){
-      $state.go('folf.map');
+      //$state.go('folf.map');
+      geocoder.geocode('');
     };
 
     $scope.courseSelected = function(){
