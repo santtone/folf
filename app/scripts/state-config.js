@@ -35,7 +35,15 @@ angular.module('folf')
               name: 'courseList',
               url: '/courseList',
               templateUrl: 'scripts/course/course-list.html',
-              controller: 'CourseListCtrl'
+              controller: 'CourseListCtrl',
+              children:[
+                {
+                  name: 'courseAddition',
+                  url: '/courseAddition',
+                  templateUrl: 'scripts/course/course.html',
+                  controller: 'CourseCtrl'
+                }
+              ]
             }
           ]
         });

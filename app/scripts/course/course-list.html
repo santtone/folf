@@ -1,13 +1,13 @@
-<div>
+<div ui-view>
     <folf-toolbar title="Radat"></folf-toolbar>
-
-    <div ng-repeat="course in courses">
-        <folf-list-item
-                avatar = "room"
-                primaryText="{{course.name}}"
-                secondaryText="{{course.location}}">
-        </folf-list-item>
+    <div>
+        <div ng-repeat="course in courses">
+            <folf-list-item
+                    avatar="room"
+                    primaryText="{{course.name}}"
+                    secondaryText="{{course.location}}">
+            </folf-list-item>
+        </div>
     </div>
-
     <paper-fab icon="add" class="folf-action-button-bottom" ng-click="add()"></paper-fab>
 </div>

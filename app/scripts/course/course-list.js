@@ -1,20 +1,16 @@
 'use strict';
 
 angular.module('folf')
-  .controller('CourseListCtrl', ['$scope', '$state', function ($scope, $state) {
+  .controller('CourseListCtrl', ['$scope', '$state', 'courseService', function ($scope, $state, courseService) {
 
-    $scope.courses = [
-      {
-        name: 'Urheilupuisto',
-        location: 'Kouvola'
-      },
-      {
-        name: 'Koivusaari',
-        location: 'Myllykoski, Kouvola'
-      }
-    ];
+    $scope.courses = [];
+
+    courseService.getAll().then(function(courses){
+      $scope.courses = courses;
+    });
 
     $scope.add = function(){
+      $state.go('folf.courseList.courseAddition');
     };
 
   }]);

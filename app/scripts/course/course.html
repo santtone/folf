@@ -1,0 +1,9 @@
+<div>
+    <folf-toolbar title="Uusi rata"></folf-toolbar>
+    <div vertical layout style="height:250px">
+        <paper-input floatinglabel label="nimi" ng-model="course.name"></paper-input>
+        <paper-input floatinglabel label="Sijainti" ng-model="course.location"></paper-input>
+        <paper-input floatinglabel label="Lisätietoja" ng-model="course.info"></paper-input>
+    </div>
+    <paper-fab icon="check" class="folf-action-button-bottom" ng-click="submit()"></paper-fab>
+</div>
