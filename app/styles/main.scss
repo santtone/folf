@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'fonts';
 
 html, body {
   font-family: $folf-font-family;
@@ -51,6 +52,11 @@ html, body {
 .folf-icons-big{
   width: 100px;
   height: 100px;
+}
+
+.folf-icons-huge{
+  width: 200px;
+  height: 200px;
 }
 
 .folf-action-button-bottom{

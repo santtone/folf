@@ -1,12 +1,22 @@
 <div ui-view>
     <folf-toolbar title="Radat"></folf-toolbar>
-    <div>
+    <div ng-if="!!courses.length">
         <div ng-repeat="course in courses">
             <folf-list-item
                     avatar="room"
                     primaryText="{{course.name}}"
                     secondaryText="{{course.address}}">
             </folf-list-item>
+        </div>
+    </div>
+    <div ng-if="!courses.length">
+        <div horizontal center-justified layout fit>
+            <div vertical layout center-justified>
+                <core-icon class="folf-icons-huge" src="images/basket.svg" style="opacity: 0.15"></core-icon>
+                <div horizontal center-justified layout class="folf-fonts-large folf-fonts-grayed">
+                    Ei ratoja
+                </div>
+            </div>
         </div>
     </div>
     <paper-fab icon="add" class="folf-action-button-bottom" ng-click="add()"></paper-fab>
