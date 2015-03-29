@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('folf')
-  .factory('courseService', ['$q', 'courseStore', function ($q, courseStore) {
+  .factory('courseService', ['$q', 'courseStore', 'courseUtils', function ($q, courseStore, courseUtils) {
 
     function arr(a) {
       return _.isArray(a) ? a : [a];
@@ -17,7 +17,7 @@ angular.module('folf')
           }))
           .then(_.flatten);
       },
-      getAll: function(){
+      getAll: function () {
         return $q.when(courseStore.findAllCourses());
       },
       add: function (c) {
@@ -25,9 +25,12 @@ angular.module('folf')
         if (c && !c.id) {
           c.id = new Date().getTime();
         }
-        return $q.when(courseStore.saveCourse(c.id, c));
+        function save(c) {
+          return courseStore.saveCourse(c.id, c);
+        }
+
+        return $q.all(courseUtils.findLocation(c).then(save));
       }
     };
-
   }
   ]);

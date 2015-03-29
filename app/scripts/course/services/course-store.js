@@ -16,7 +16,7 @@ angular.module('folf')
         load: function (id) {
           return saved[id];
         },
-        loadAll: function(){
+        loadAll: function () {
           return saved;
         }
       };
@@ -31,10 +31,10 @@ angular.module('folf')
             return store().load(id);
           }));
       },
-      findAllCourses: function(){
+      findAllCourses: function () {
         return store().loadAll();
       },
-      saveCourse: function(id, content){
+      saveCourse: function (id, content) {
         return store().save(id, content);
       }
     };
