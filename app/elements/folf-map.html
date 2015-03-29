@@ -1,4 +1,4 @@
-<polymer-element name="folf-map" attributes="">
+<polymer-element name="folf-map" attributes="courses">
     <template>
 
         <style>
@@ -6,7 +6,9 @@
 
         <div fit>
             <google-map latitude="{{latitude}}" longitude="{{longitude}}">
-                <google-map-marker latitude="60.8681" longitude="26.7042" title="TITLE"></google-map-marker>
+                <template repeat="{{c in courses}}">
+                    <google-map-marker latitude="{{c.location.lat}}" longitude="{{c.location.lng}}" title="{{c.name}}"></google-map-marker>
+                </template>
             </google-map>
         </div>
 
@@ -17,9 +19,15 @@
 
             publish: {
                 latitude: 60.8681,
-                longitude: 26.7042
+                longitude: 26.7042,
+                courses: null
             },
             ready: function () {
+                console.log(this.courses);
+                this.fire('map-ready', {});
+            },
+            coursesChanged: function(o, n){
+                console.log(n);
             }
         });
 

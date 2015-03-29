@@ -18,7 +18,7 @@ angular.module('folf')
           .then(_.flatten);
       },
       getAll: function () {
-        return $q.when(courseStore.findAllCourses());
+        return $q.when(courseStore.findAllCourses()).then(_.toArray);
       },
       add: function (c) {
         //TODO: generate real id or get it from database
