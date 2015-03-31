@@ -1,0 +1,53 @@
+<polymer-element name="folf-panel">
+    <template>
+
+        <style>
+            :host {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+
+            }
+
+            .panelContainer {
+                margin-top: 16px;
+                background: white;
+                max-width: 600px;
+                box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+            }
+
+            .pageContainer {
+                padding-top: 16px;
+                background: white;
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                right: 0;
+            }
+
+        </style>
+        <core-media-query query="max-width: 600px" queryMatches="{{phoneScreen}}"></core-media-query>
+        <div horizontal center-justified layout>
+            <div class="{{ {panelContainer: !phoneScreen, pageContainer: phoneScreen} | tokenList}}">
+                <content></content>
+            </div>
+        </div>
+
+
+    </template>
+    <script>
+
+        Polymer('folf-panel', {
+
+            publish: {
+            },
+            phoneScreenChanged: function (o, n) {
+                console.log(n);
+            }
+        });
+
+    </script>
+</polymer-element>

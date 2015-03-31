@@ -1,33 +1,35 @@
 <folf-toolbar home="true" title="FOLF"></folf-toolbar>
-<div horizontal center-justified layout wrap>
-    <div self-center class="folf-main-item-container">
-        <folf-main-item color="#E91E63" label="Pelaa">
-            <core-icon class="folf-icons-medium" icon="folf-icons:player"></core-icon>
-        </folf-main-item>
+<folf-panel>
+    <div horizontal layout wrap>
+        <div self-center class="folf-main-item-container" flex>
+            <folf-main-item color="#E91E63" label="Pelaa">
+                <core-icon class="folf-icons-medium" icon="folf-icons:player"></core-icon>
+            </folf-main-item>
+        </div>
+        <div self-center class="folf-main-item-container" flex>
+            <folf-main-item color="#03A9F4" label="Radat" folf-selected="courseSelected()">
+                <core-icon class="folf-icons-medium" src="images/basket.svg"></core-icon>
+            </folf-main-item>
+        </div>
+        <div self-end class="folf-main-item-container" flex>
+            <folf-main-item color="#43A047" label="Pelaajat">
+                <core-icon class="folf-icons-medium" src="images/group.svg"></core-icon>
+            </folf-main-item>
+        </div>
+        <div self-stretch class="folf-main-item-container" flex>
+            <folf-main-item color="#AB47BC" label="Profiili">
+                <core-icon class="folf-icons-medium" icon="account-circle" style="color: #AB47BC"></core-icon>
+            </folf-main-item>
+        </div>
+        <div self-stretch class="folf-main-item-container" flex>
+            <folf-main-item color="#F57F17" label="Ennätykset">
+                <core-icon class="folf-icons-medium" src="images/cup.svg"></core-icon>
+            </folf-main-item>
+        </div>
+        <div self-stretch class="folf-main-item-container" flex>
+            <folf-main-item color="#795548" label="Kartta" folf-selected="mapSelected()">
+                <core-icon class="folf-icons-big" src="images/map.svg"></core-icon>
+            </folf-main-item>
+        </div>
     </div>
-    <div self-center class="folf-main-item-container">
-        <folf-main-item color="#03A9F4" label="Radat" folf-selected="courseSelected()">
-            <core-icon class="folf-icons-medium" src="images/basket.svg"></core-icon>
-        </folf-main-item>
-    </div>
-    <div self-end class="folf-main-item-container">
-        <folf-main-item color="#43A047" label="Pelaajat">
-            <core-icon class="folf-icons-medium" src="images/group.svg"></core-icon>
-        </folf-main-item>
-    </div>
-    <div self-stretch class="folf-main-item-container">
-        <folf-main-item color="#AB47BC" label="Profiili">
-            <core-icon class="folf-icons-medium" icon="account-circle" style="color: #AB47BC"></core-icon>
-        </folf-main-item>
-    </div>
-    <div self-stretch class="folf-main-item-container">
-        <folf-main-item color="#F57F17" label="Ennätykset">
-            <core-icon class="folf-icons-medium" src="images/cup.svg"></core-icon>
-        </folf-main-item>
-    </div>
-    <div self-stretch class="folf-main-item-container">
-        <folf-main-item color="#795548" label="Kartta" folf-selected="mapSelected()">
-            <core-icon class="folf-icons-big" src="images/map.svg"></core-icon>
-        </folf-main-item>
-    </div>
-</div>
+</folf-panel>
