@@ -1,5 +1,7 @@
+'use strict';
+
 angular.module('folf')
-  .factory('courseStore', [function () {
+  .factory('courseStore', ['$rootScope', function ($rootScope) {
 
     var saved = {};
 
@@ -7,11 +9,15 @@ angular.module('folf')
       return _.isArray(a) ? a : [a];
     }
 
+    function broadcastCourseReset(courses) {
+      $rootScope.$broadcast('course:reset', courses);
+    }
+
     var store = function () {
       var api = {
         save: function (id, content) {
           saved[id] = content;
-          return api.load(id); // verify what has been saved
+          return api.load(id);
         },
         load: function (id) {
           return saved[id];
@@ -36,6 +42,13 @@ angular.module('folf')
       },
       saveCourse: function (id, content) {
         return store().save(id, content);
+      },
+      resetCourses: function(courses){
+        var saved = _.map(courses, function (c) {
+          return store().save(c.id, c);
+        });
+        broadcastCourseReset(saved);
+        return saved;
       }
     };
   }]);

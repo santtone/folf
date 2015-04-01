@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('folf')
   .factory('courseUtils', ['$q', 'geocoder', function ($q, geocoder) {
 
