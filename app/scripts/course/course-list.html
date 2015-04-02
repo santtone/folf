@@ -1,5 +1,6 @@
 <div ui-view>
     <folf-toolbar title="Radat"></folf-toolbar>
+    <folf-panel>
     <div ng-if="!!courses.length">
         <div ng-repeat="course in courses">
             <folf-list-item
@@ -21,5 +22,6 @@
             </div>
         </div>
     </div>
+    </folf-panel>
     <paper-fab icon="add" class="folf-action-button-bottom" ng-click="add()"></paper-fab>
 </div>
