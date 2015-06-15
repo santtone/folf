@@ -1,0 +1,13 @@
+<div>
+    <folf-toolbar title="Uusi rata"></folf-toolbar>
+    <folf-panel>
+        <div vertical layout class="folf-container">
+            <paper-input label="nimi" ng-model="course.name"></paper-input>
+            <paper-input label="paikkakunta" ng-model="course.address.city"></paper-input>
+            <paper-input label="katuosoite" ng-model="course.address.streetAddress"></paper-input>
+            <paper-input label="kuvaus" ng-model="course.info"></paper-input>
+            <folf-slider pin snaps min="1" max="20" value="9" step="1" editable></folf-slider>
+        </div>
+    </folf-panel>
+    <paper-fab icon="check" class="folf-action-button-bottom" ng-click="submit()"></paper-fab>
+</div>

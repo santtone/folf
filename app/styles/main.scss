@@ -55,8 +55,8 @@ html, body {
 }
 
 .folf-icons-huge{
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
 }
 
 .folf-action-button-bottom{
@@ -67,5 +67,14 @@ html, body {
 
 .folf-divider-line{
   border-top:1px solid #d3d3d3;
+}
+
+.folf-container-panel{
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  background: white;
+}
+
+.folf-container{
+  padding: 16px;
 }
 

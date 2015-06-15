@@ -16,5 +16,10 @@ angular.module('ng-polymer-elements').constant('$ngPolymerMappings', {
     folfCourses: {
       primitive: 'courses'
     }
+  },
+  folfListItem:{
+    folfSelected:{
+      event: 'selected'
+    }
   }
 });

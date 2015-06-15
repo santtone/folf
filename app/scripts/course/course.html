@@ -1,9 +1,34 @@
 <div>
     <folf-toolbar title="Uusi rata"></folf-toolbar>
-    <div vertical layout style="height:250px">
-        <paper-input floatinglabel label="nimi" ng-model="course.name"></paper-input>
-        <paper-input floatinglabel label="Sijainti" ng-model="course.address"></paper-input>
-        <paper-input floatinglabel label="Lisätietoja" ng-model="course.info"></paper-input>
-    </div>
-    <paper-fab icon="check" class="folf-action-button-bottom" ng-click="submit()"></paper-fab>
+    <folf-panel>
+        <div vertical layout style="background: #add8e6">
+            <div horizontal center-justified layout>
+                <div folf-background-image="images/course.svg" class="folf-icons-huge"></div>
+            </div>
+            <div horizontal start-justified layout class="folf-fonts-huge folf-fonts-white">
+                {{course.name || course.id}}
+            </div>
+        </div>
+        <div class="folf-container-panel">
+            <folf-list-item
+                    folf-selected=""
+                    avatar="room"
+                    primaryText="{{course.address.streetAddress + course.address.city}}"
+                    secondaryText="Osoite">
+            </folf-list-item>
+            <folf-list-item
+                    folf-selected=""
+                    avatar="empty"
+                    primaryText="{{(course.location.lat | limitTo:6) + ', ' + (course.location.lng | limitTo:6)}}"
+                    secondaryText="Sijainti">
+            </folf-list-item>
+            <div class="folf-divider-line"></div>
+            <folf-list-item
+                    folf-selected=""
+                    avatar="subject"
+                    primaryText="{{course.info}}"
+                    secondaryText="Kuvaus">
+            </folf-list-item>
+        </div>
+    </folf-panel>
 </div>

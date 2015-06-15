@@ -4,9 +4,9 @@
     <div ng-if="!!courses.length">
         <div ng-repeat="course in courses">
             <folf-list-item
-                    avatar="room"
+                    folf-selected="showCourse(course)"
                     primaryText="{{course.name || course.id}}"
-                    secondaryText="{{course.address}}">
+                    secondaryText="{{course.address.streetAddress + course.address.city}}">
             </folf-list-item>
             <div class="folf-divider-line" ng-if="!$last"></div>
         </div>

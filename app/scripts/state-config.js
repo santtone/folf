@@ -38,10 +38,24 @@ angular.module('folf')
               controller: 'CourseListCtrl',
               children:[
                 {
-                  name: 'courseAddition',
-                  url: '/courseAddition',
+                  name: 'course',
+                  url: '/course/:courseId',
                   templateUrl: 'scripts/course/course.html',
-                  controller: 'CourseCtrl'
+                  controller: 'CourseCtrl',
+                  children:[
+                    {
+                      name: 'edit',
+                      url: '/edit',
+                      templateUrl: 'scripts/course/course-edit.html',
+                      controller: 'CourseEditCtrl'
+                    }
+                  ]
+                },
+                {
+                  name: 'add',
+                  url: '/add',
+                  templateUrl: 'scripts/course/course-edit.html',
+                  controller: 'CourseEditCtrl'
                 }
               ]
             }

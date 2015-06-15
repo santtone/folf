@@ -1,13 +1,15 @@
 'use strict';
 
 angular.module('folf')
-  .controller('CourseCtrl', ['$scope', '$state', 'courseService', function ($scope, $state, courseService) {
+  .controller('CourseCtrl', ['$scope', '$state', 'courseService', '$stateParams',
+    function ($scope, $state, courseService, $stateParams) {
 
-    $scope.course = {};
+      $scope.course = {};
 
-    $scope.submit = function () {
-      courseService.add($scope.course).then(function () {
-        $state.go('^');
+      var id = $stateParams.courseId;
+
+      courseService.get(id).then(function (courses) {
+        $scope.course = _.first(courses);
       });
-    };
-  }]);
+
+    }]);

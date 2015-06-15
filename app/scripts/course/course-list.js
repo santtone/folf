@@ -5,12 +5,16 @@ angular.module('folf')
 
     $scope.courses = [];
 
-    courseService.getAll().then(function(courses){
+    courseService.getAll().then(function (courses) {
       $scope.courses = courses;
     });
 
-    $scope.add = function(){
-      $state.go('folf.courseList.courseAddition');
+    $scope.add = function () {
+      $state.go('folf.courseList.add', {});
+    };
+
+    $scope.showCourse = function (course) {
+      $state.go('folf.courseList.course', {courseId: course.id});
     };
 
   }]);

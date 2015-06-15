@@ -1,0 +1,30 @@
+<polymer-element name="folf-slider" extends="paper-slider">
+
+    <style>
+
+        folf-slider {
+            width: 100% !important;
+        }
+
+        folf-slider::shadow #sliderBar::shadow #activeProgress,
+        folf-slider::shadow #sliderKnobInner,
+        folf-slider::shadow #sliderKnobInner::before {
+            background-color: #2196F3;
+        }
+
+        folf-slider::shadow #sliderKnob > #sliderKnobInner::after {
+            color: #ffffff;
+        }
+
+        folf-slider::shadow #sliderBar::shadow #secondaryProgress {
+            background-color: #0f9d58;
+        }
+
+    </style>
+
+    <script>
+
+        Polymer('folf-slider', {});
+
+    </script>
+</polymer-element>

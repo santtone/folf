@@ -17,7 +17,7 @@
                 height: 40px;
             }
 
-            .avatar-text{
+            .avatar-text {
                 color: white;
                 font-size: 20px;
             }
@@ -28,13 +28,22 @@
             }
         </style>
 
-        <div horizontal layout class="item-container">
+        <div horizontal layout class="item-container" on-click="{{onSelection}}">
             <paper-ripple fit></paper-ripple>
-            <div class="icon-background" horizontal center layout style="background: {{randomColor()}}">
-                <div class="avatar-text" horizontal center-justified layout flex>
-                    {{primaryText | firstChar | uppercase}}
+            <template if="{{!avatar}}">
+                <div class="icon-background" horizontal center layout style="background: {{randomColor()}}">
+                    <div class="avatar-text" horizontal center-justified layout flex>
+                        {{primaryText | firstChar | uppercase}}
+                    </div>
                 </div>
-            </div>
+            </template>
+            <template if="{{avatar}}">
+                <div horizontal center layout>
+                    <div horizontal center-justified layout flex>
+                        <core-icon icon="{{avatar}}"></core-icon>
+                    </div>
+                </div>
+            </template>
             <div flex horizontal layout center class="text-container">
                 <div vertical layout>
                     <div>{{primaryText}}</div>
@@ -65,9 +74,12 @@
                     return value.charAt(0);
                 }
             },
-            randomColor: function(){
+            randomColor: function () {
                 var i = Math.floor(Math.random() * 6) + 1;
-                return this.colors[i-1];
+                return this.colors[i - 1];
+            },
+            onSelection: function () {
+                this.fire('selected', {});
             }
         });
 

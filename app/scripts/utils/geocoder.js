@@ -5,8 +5,9 @@ angular.module('folf')
 
     return{
       geocode: function (address) {
-        var address = address.replace(' ', '+');
-        var promise = $http.get(url + address);
+        var query = address.city + '+' + address.streetAddress;
+        var query = query.replace(' ', '+');
+        var promise = $http.get(url + query);
         return promise.then(function (response) {
           return response;
         });
